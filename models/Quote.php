@@ -2,7 +2,7 @@
 
 class Quote {
     private $conn;
-    private $table = 'quotes';
+    private $table = 'kgk3wzi0cz11l61j.quotes';
     public $id;
     public $quote;
     public $authorId;
