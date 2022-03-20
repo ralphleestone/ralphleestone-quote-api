@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,5 +8,6 @@
 </head>
 <body>
 <h1>REST API LOADED</h1>
+<P>Ralph's Midterm Project</P>
 </body>
 </html>
