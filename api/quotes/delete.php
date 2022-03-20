@@ -15,14 +15,11 @@ $db = $database->connect();
 
 $quote = new Quote($db);
 
-// get data
-
 $data = json_decode(file_get_contents("php://input"));
 
 $quote->delete();
 
 $quote->id = $data->id;
-// delete the post itself 
 
 if($quote->id !== null) {
     echo json_encode(

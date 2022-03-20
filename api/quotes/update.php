@@ -10,62 +10,25 @@ include_once '../../models/Quote.php';
 include_once '../../models/Author.php';
 include_once '../../models/Category.php';
 
-
 $database = new Database();
 $db = $database->connect();
 
-
 $quote = new Quote($db);
-
-// get data
 
 $data = json_decode(file_get_contents("php://input"));
 
 $quote->id = $data->id;
-
 $quote->id = $data->id;
 $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
-
-// Update the post itself 
-
-
-// if( (!isset($data->quote) || empty($data->quote)) || (!isset($data->authorId) || empty($data->authorId)) || (!isset($data->categoryId) || empty($data->categoryId)) ) {
-//     echo json_encode (
-//         array('message' => 'Missing Required Parameters')
-//     );
-// }
-
-//  if (!isset($data->quote) || empty($data->quote)) {
-//     echo json_encode (
-//         array('message' => 'No Quotes Found')
-//     );
-//     exit();
-// }
-
-//  if (!isset($data->authorId) || empty($data->authorId)) {
-//     echo json_encode (
-//         array('message' => 'authorId Not Found')
-//     );
-//     exit();
-// }
-
-//  if (!isset($data->categoryId) || empty($data->categoryId)) {
-//     echo json_encode (
-//         array('message' => 'categoryId not found')
-//     );
-//     exit();
-// }
-
-
 if($quote->update()) {
     echo json_encode(
         array('id' => $quote->id,
-               'quote' => $quote->quote,
-               'authorId' => $quote->authorId,
-                'categoryId' => $quote->categoryId    
+        'quote' => $quote->quote,
+        'authorId' => $quote->authorId,
+        'categoryId' => $quote->categoryId
         )
     );
 } else {
