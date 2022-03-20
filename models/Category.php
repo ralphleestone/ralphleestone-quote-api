@@ -17,7 +17,7 @@
     // Get categories
     public function read() {
       // Create query
-      $query = 'SELECT id, name, created_at FROM' . $this->table . 'ORDER BY created_at DESC';
+      $query = 'SELECT * FROM kgk3wzi0cz11l61j.categories;';
 
       // Prepare statement
       $stmt = $this->conn->prepare($query);
