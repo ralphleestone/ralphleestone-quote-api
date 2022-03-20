@@ -21,7 +21,33 @@ public function __construct($db) {
 // get and display the quotes
 
 // start of get all quotes
+public function read() {
+    $query = 'SELECT
+    q.id,
+    q.quote,
+    a.author,
+    c.category
+    From
+    ' . $this->table . ' q
+    LEFT JOIN authors a 
+    ON
+    q.authorId = a.id
+    LEFT JOIN categories c
+    ON
+    q.categoryId = c.id';
+    
 
+    // create statements
+    
+
+    $stmt = $this->conn->prepare($query);
+
+    // execute query
+
+$stmt->execute();
+
+    return $stmt;
+}
 // end of get all quotes
 
 
