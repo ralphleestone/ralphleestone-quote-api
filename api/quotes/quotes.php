@@ -8,7 +8,8 @@ include_once '../../models/Quote.php';
 
 $database = new Database();
 $db = $database->connect();
-$quote = new Quotes($db);
+$quote = new Quote($db);
+
 $result = $quote->read();
 $num = $result->rowCount();
 if($num > 0) {

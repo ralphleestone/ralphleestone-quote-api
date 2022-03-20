@@ -17,7 +17,6 @@ $quote = new Quotes($db);
 
 $data = json_decode(file_get_contents("php://input"));
 
-
 $quote->id = $data->id;
 $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
@@ -33,10 +32,7 @@ if($quote->create()) {
             'authorId' => $quote->authorId,
             'categoryId' => $quote->categoryId)
     );
- } 
-  
-
- else {
+ } else {
     echo json_encode(
         array('message' => 'quote Not Created')
     );
