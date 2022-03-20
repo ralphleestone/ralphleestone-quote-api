@@ -11,4 +11,3 @@ if ($method === 'OPTIONS') {
 
 $database = new Database();
 $db = $database->connect();
-
