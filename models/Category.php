@@ -17,8 +17,8 @@ class Category {
     $stmt->execute();
     return $stmt;
   }
-    
-    public function read_single() {
+  
+  public function read_single() {
       $query = 'SELECT id, category FROM ' . $this->table . 'WHERE id = ? LIMIT 0,1';
       $stmt = $this->conn->prepare($query);
       $stmt->bindParam(1, $this->id);
@@ -39,7 +39,7 @@ class Category {
       if($stmt->execute()) {
         return true;
       }
-      printf("Error: %s. \n", $stmt->error);
+      echo("Error: %s. \n", $stmt->error);
       return false;
     }
     
@@ -54,12 +54,12 @@ class Category {
       if($stmt->execute()) {
         return true;
       } 
-      printf("Error: %s. \n", $stmt->error);
+      echo("Error: %s. \n", $stmt->error);
       return false;
     }
     
     public function delete() {
-      $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+      $query = 'DELETE FROM ' . $this->table . 'WHERE id = :id';
       $stmt = $this->conn->prepare($query);
       $this->id = htmlspecialchars(strip_tags($this->id));
       $stmt->bindParam(':id', $this->id);
@@ -67,7 +67,7 @@ class Category {
       if($stmt->execute()) {
         return true;
       } 
-      printf("Error: %s. \n", $stmt->error);
+      echo("Error: %s. \n", $stmt->error);
       return false;
     }
   }
