@@ -2,6 +2,7 @@
     
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
+    
     $method = $_SERVER['REQUEST_METHOD'];
     if ($method === 'OPTIONS') {
         header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
@@ -12,40 +13,22 @@
     $isAnAuthorId = filter_input(INPUT_GET, "authorId");
     $isAnCategoryId = filter_input(INPUT_GET, "categoryId");
     
-
    if(!empty($isAnId) && $method == 'GET') {
-     
-    include('./quotes_read_single.php');
-    }
-
-    else if (!empty($isAnCategoryId) && !empty($isAnAuthorId) && $method == 'GET') {
-        include('./quoteByCategoryIdAndAuthorId.php');
-    }
-
-    else if (!empty($isAnAuthorId) && $method == 'GET') {
-        
-        include('./quoteByAuthorID.php');
-    }
-
-    else if (!empty($isAnCategoryId) && $method == 'GET') {
-      
-        include('./quoteByCategoryId.php');
+       include('./read_single.php');
     }
 
     else if ($method == 'POST') {
-        include('./createQuote.php');
+        include('./create.php');
     }
 
     else if ($method == 'PUT') {
-        include('./updateQuote.php');
+        include('./update.php');
     }
 
     else if ($method == 'DELETE') {
-        include('./deleteQuote.php');
+        include('./delete.php');
     }
-
     
-
-else if($method == 'GET') {
-    include('./quotes.php');
+    else if($method == 'GET') {
+        include('./quotes.php');
 } 
