@@ -1,23 +1,36 @@
-<?php 
-  class Database {
-    // DB Params
-    private $host = 'exbodcemtop76rnz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
-    private $db_name = 'kgk3wzi0cz11l61j';
-    private $username = 'kpyim9nuco43e7mw';
-    private $password = 'fejedja0chs0qgd0';
-    private $conn;
+<?php
 
-    // DB Connect
+class Database {
+
     public function connect() {
-      $this->conn = null;
+        // if creating a Heroku connection, this is straight from the dev center link: 
+        $url = getenv('JAWSDB_URL');
+        $dbparts = parse_url($url);
+    
+        $hostname = $dbparts['host'];
+        $username = $dbparts['user'];
+        $password = $dbparts['pass'];
+        $database = ltrim($dbparts['path'],'/');
+        //You cannot do the above for your local dev environment, just Heroku
+    
+        // Create your new PDO connection here
+        // This is also from the Heroku docs showing the PDO connection: 
+        try {
+          $this->conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+          // set the PDO error mode to exception
+          $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+         
+        }
+        catch(PDOException $e)
+        {
+          echo "Connection failed: " . $e->getMessage();
+        }
+        // We used this PDO connection format in previous weeks - reference w3schools.com
 
-      try { 
-        $this->conn = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->db_name, $this->username, $this->password);
-        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connected successfully";
-      } catch(PDOException $e) {
-        echo 'Connection Error: ' . $e->getMessage();
+        return $this->conn;
       }
-      return $this->conn;
-    }
-  }
+}
+
+
+
+?>
