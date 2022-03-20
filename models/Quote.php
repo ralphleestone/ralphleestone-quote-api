@@ -204,7 +204,6 @@ public function getQuotesByAuthorIdAndCategoryId() {
 
 }
 
-
 // Create a quote
 
 public function create() {
@@ -229,9 +228,6 @@ public function create() {
     $stmt->bindParam(':quote', $this->quote);
     $stmt->bindParam(':authorId', $this->authorId);
     $stmt->bindParam(':categoryId', $this->categoryId);
-
-
-
 
     if($stmt->execute()) {
         return true;
