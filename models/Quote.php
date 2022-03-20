@@ -1,6 +1,6 @@
 <?php
 
-class Quotes {
+class Quote {
 private $conn;
 private $table = 'quotes';
 
