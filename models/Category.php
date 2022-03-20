@@ -2,7 +2,7 @@
   class Category {
     // DB Stuff
     private $conn;
-    private $table = 'kgk3wzi0cz11l61j.categories';
+    private $table = 'categories';
 
     // Properties
     public $id;
