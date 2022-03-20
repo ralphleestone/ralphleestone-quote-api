@@ -21,7 +21,7 @@ class Quote {
     }
     
     public function read_single() {
-        $query = 'SELECT q.id, q.quote, a.author, c.category From' . $this->table . ' q LEFT JOIN authors a ON q.authorId = a.id LEFT JOIN category c ON q.categoryId = c.id WHERE q.id = :id';
+        $query = 'SELECT q.id, q.quote, a.author, c.category From' . $this->table . 'q LEFT JOIN authors a ON q.authorId = a.id LEFT JOIN category c ON q.categoryId = c.id WHERE q.id = :id';
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $this->id);
         $stmt->execute();
@@ -34,7 +34,7 @@ class Quote {
     }
     
     public function getQuotesByAuthorID() {
-        $query = 'SELECT q.id, q.quote, a.author, c.category From' . $this->table . ' q LEFT JOIN authors a ON q.authorId = a.id LEFT JOIN category c ON q.categoryId = c.id WHERE q.authorId = :authorId';
+        $query = 'SELECT q.id, q.quote, a.author, c.category From' . $this->table . 'q LEFT JOIN authors a ON q.authorId = a.id LEFT JOIN category c ON q.categoryId = c.id WHERE q.authorId = :authorId';
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':authorId', $this->authorId);
         $stmt->execute();    
@@ -42,7 +42,7 @@ class Quote {
     }
     
     public function getQuotesByAuthorIdAndCategoryId() {
-        $query = 'SELECT q.id, q.quote, a.author, c.category FROM' . $this->table . ' q LEFT JOIN authors a ON q.authorId = a.id LEFT JOIN category c ON q.categoryId = c.id WHERE q.authorId = :authorId && q.categoryId = :categoryId' ;
+        $query = 'SELECT q.id, q.quote, a.author, c.category FROM' . $this->table . 'q LEFT JOIN authors a ON q.authorId = a.id LEFT JOIN category c ON q.categoryId = c.id WHERE q.authorId = :authorId && q.categoryId = :categoryId';
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':authorId', $this->authorId);
         $stmt->bindParam(':categoryId', $this->categoryId);
