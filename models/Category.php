@@ -17,14 +17,7 @@
     // Get categories
     public function read() {
       // Create query
-      $query = 'SELECT
-        id,
-        name,
-        created_at
-      FROM
-        ' . $this->table . '
-      ORDER BY
-        created_at DESC';
+      $query = 'SELECT id, name, created_at FROM' . $this->table . 'ORDER BY created_at DESC';
 
       // Prepare statement
       $stmt = $this->conn->prepare($query);
@@ -38,13 +31,7 @@
     // Get Single Category
   public function read_single(){
     // Create query
-    $query = 'SELECT
-          id,
-          name
-        FROM
-          ' . $this->table . '
-      WHERE id = ?
-      LIMIT 0,1';
+    $query = 'SELECT id, name FROM' . $this->table . 'WHERE id = ? LIMIT 0,1';
 
       //Prepare statement
       $stmt = $this->conn->prepare($query);
@@ -65,10 +52,7 @@
   // Create Category
   public function create() {
     // Create Query
-    $query = 'INSERT INTO ' .
-      $this->table . '
-    SET
-      name = :name';
+    $query = 'INSERT INTO ' . $this->table . 'SET name = :name';
 
   // Prepare Statement
   $stmt = $this->conn->prepare($query);
@@ -93,12 +77,7 @@
   // Update Category
   public function update() {
     // Create Query
-    $query = 'UPDATE ' .
-      $this->table . '
-    SET
-      name = :name
-      WHERE
-      id = :id';
+    $query = 'UPDATE ' . $this->table . 'SET name = :nameWHERE id = :id';
 
   // Prepare Statement
   $stmt = $this->conn->prepare($query);
