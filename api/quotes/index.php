@@ -7,6 +7,9 @@ header('Access-Control-Allow-Methods: PUT');
 header('Access-Control-Allow-Methods: DELETE');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Origin,Content-Type, Access-Control-Allow-Methods,Authorization, X-Requested-With');
 
+$database = new Database();
+$db = $database->connect();
+
 $method = $_SERVER['REQUEST_METHOD'];
 $isAnId = filter_input(INPUT_GET, "id");
 $isAnAuthorId = filter_input(INPUT_GET, "authorId");
