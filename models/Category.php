@@ -2,7 +2,7 @@
   class Category {
     // DB Stuff
     private $conn;
-    private $table = 'categories';
+    private $table = 'kgk3wzi0cz11l61j.categories';
 
     // Properties
     public $id;
@@ -17,7 +17,7 @@
     // Get categories
     public function read() {
       // Create query
-      $query = 'SELECT * FROM kgk3wzi0cz11l61j.categories;';
+      $query = 'SELECT id, name, created_at FROM' . $this->table . 'ORDER BY created_at DESC';
 
       // Prepare statement
       $stmt = $this->conn->prepare($query);
