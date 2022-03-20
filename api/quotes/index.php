@@ -32,3 +32,4 @@
     else if($method == 'GET') {
         include('./quotes.php');
 } 
+?>
