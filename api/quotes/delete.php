@@ -10,10 +10,8 @@ include_once '../../models/Quote.php';
 include_once '../../models/Author.php';
 include_once '../../models/Category.php';
 
-
 $database = new Database();
 $db = $database->connect();
-
 
 $quote = new Quote($db);
 
@@ -25,7 +23,6 @@ $quote->delete();
 
 $quote->id = $data->id;
 // delete the post itself 
-
 
 if($quote->id !== null) {
     echo json_encode(
