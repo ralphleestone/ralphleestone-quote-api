@@ -32,7 +32,7 @@ public function read() {
     LEFT JOIN authors a 
     ON
     q.authorId = a.id
-    LEFT JOIN category c
+    LEFT JOIN categories c
     ON
     q.categoryId = c.id';
     
