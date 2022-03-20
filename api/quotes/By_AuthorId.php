@@ -33,7 +33,6 @@ $num = $result->rowCount();
             'category' => $category,
             'id' => $id,
             'author' => $author
-           
         );
 
         array_push($quote_arr, $quote_item);
