@@ -11,6 +11,7 @@ $database = new Database();
 $db = $database->connect();
 
 $method = $_SERVER['REQUEST_METHOD'];
+
 $isAnId = filter_input(INPUT_GET, "id");
 $isAnAuthorId = filter_input(INPUT_GET, "authorId");
 $isAnCategoryId = filter_input(INPUT_GET, "categoryId");

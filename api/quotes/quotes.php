@@ -8,10 +8,12 @@ include_once '../../models/Quote.php';
 
 $database = new Database();
 $db = $database->connect();
+
 $quote = new Quote($db);
 
 $result = $quote->read();
 $num = $result->rowCount();
+
 if($num > 0) {
     $quote_arr = array();
     $quote_arr = array();
