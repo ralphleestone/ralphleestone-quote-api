@@ -8,7 +8,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 include_once '../../config/Database.php';
 include_once '../../models/Quote.php';
 include_once '../../models/Author.php';
-include_once '../../models/Categorie.php';
+include_once '../../models/Category.php';
 
 $database = new Database();
 $db = $database->connect();
