@@ -13,7 +13,7 @@ include_once '../../models/Categorie.php';
 $database = new Database();
 $db = $database->connect();
 
-$quote = new Quotes($db);
+$quote = new Quote($db);
 
 $data = json_decode(file_get_contents("php://input"));
 
