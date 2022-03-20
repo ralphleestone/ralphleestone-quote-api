@@ -14,7 +14,7 @@ class Quote {
     }
     
     public function read() {
-        $query = 'SELECT q.id, q.quote, a.author, c.category From' . $this->table . ' q LEFT JOIN authors a ON q.authorId = a.id LEFT JOIN category c ON q.categoryId = c.id';
+        $query = 'SELECT q.id, q.quote, a.author, c.category From' . $this->table . 'q LEFT JOIN authors a ON q.authorId = a.id LEFT JOIN category c ON q.categoryId = c.id';
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
