@@ -1,5 +1,4 @@
 <?php
-
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
@@ -23,15 +22,14 @@ if($num > 0) {
         extract($row);
         $author_item = array( 
             'id' => $id,
-            'author' => $author   
+            'author' => $author
         );
         array_push($author_arr, $author_item);
     }
-   print_r(json_encode($author_arr));
+    print_r(json_encode($author_arr));
 } else {
     echo json_encode(
         array('message' => 'No authors found')
     );
 }
-
 ?>

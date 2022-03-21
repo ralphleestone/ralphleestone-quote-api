@@ -1,5 +1,4 @@
 <?php 
-
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
@@ -28,5 +27,4 @@ else if ($method == 'DELETE') {
 if ($method == 'POST') {
     include('./create.php');
 }
-
 ?>
