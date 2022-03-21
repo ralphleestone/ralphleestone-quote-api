@@ -22,18 +22,16 @@ $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
 if($quote->create()) {
-
     echo json_encode(
-
         array(
             'id' => $db->lastInsertId(),
             'quote' => $quote->quote,
             'authorId' => $quote->authorId,
             'categoryId' => $quote->categoryId)
-    );
- } else {
-    echo json_encode(
-        array('message' => 'quote Not Created')
-    );
-} 
+        );
+    } else {
+        echo json_encode(
+            array('message' => 'quote Not Created')
+        );
+    } 
 ?>
