@@ -8,18 +8,11 @@ include_once '../../config/Database.php';
 include_once '../../models/Quote.php';
 include_once '../../models/Author.php';
 include_once '../../models/Category.php';
-include_once '../../IsValid/Is_Valid.php';
 
 $database = new Database();
 $db = $database->connect();
 
 $quote = new Quote($db);
-
-$quoteExists = IsValid($quote->id,$quote);
-
-if(!quoteExists){
-    echo json_encode(array('message' => 'quote Not Created'));
-}
 
 $data = json_decode(file_get_contents("php://input"));
 
