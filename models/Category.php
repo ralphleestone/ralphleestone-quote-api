@@ -40,7 +40,6 @@ class Category {
     
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
-
         $this->id = $row['id'];
         $this->category = $row['category'];
         
@@ -52,14 +51,9 @@ class Category {
         category = :category';
 
         $stmt = $this->conn->prepare($query);
-    
-        //$this->id = htmlspecialchars(strip_tags($this->id));
         $this->category = htmlspecialchars(strip_tags($this->category));
-    
-        //$stmt->bindParam(':id', $this->id);
         $stmt->bindParam(':category', $this->category);
       
-        
        if($stmt->execute()) {
             return true;
         }
