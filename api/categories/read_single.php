@@ -9,7 +9,6 @@ include_once '../../models/Category.php';
 $database = new Database();
 $db = $database->connect();
 
-
 $category = new Category($db);
 
 
