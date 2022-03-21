@@ -8,9 +8,9 @@
         header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
     }
     
-    $isAnId = filter_input(INPUT_GET, "id");
-    $isAnAuthorId = filter_input(INPUT_GET, "authorId");
-    $isAnCategoryId = filter_input(INPUT_GET, "categoryId");
+    $isId = filter_input(INPUT_GET, "id");
+    $isAuthorId = filter_input(INPUT_GET, "authorId");
+    $isCategoryId = filter_input(INPUT_GET, "categoryId");
     
     if ($method == 'PUT') {
         include('./update.php');
@@ -21,16 +21,16 @@
     else if ($method == 'POST') {
         include('./create.php');
     }
-    else if(!empty($isAnId)) {
+    else if(!empty($isId)) {
         include('./read_single.php');
     }
-    else if (!empty($isAnCategoryId) && !empty($isAnAuthorId)) {
+    else if (!empty($isCategoryId) && !empty($isAuthorId)) {
         include('./By_CategoryId_And_AuthorId.php');
     }
-    else if (!empty($isAnAuthorId)) {
+    else if (!empty($isAuthorId)) {
         include('./By_AuthorId.php');
     }
-    else if (!empty($isAnCategoryId)) {
+    else if (!empty($isCategoryId)) {
         include('./By_CategoryId.php');
     }
     else if($method == 'GET') {
