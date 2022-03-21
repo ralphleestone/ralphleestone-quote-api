@@ -21,13 +21,13 @@ $quote->delete();
 
 $quote->id = $data->id;
 
-$quoteExsists = isValid($id,$quote);
+$quoteExists = isValid($id,$quote);
 
-if(!quoteExsists) {
+if(!quoteExists) {
     echo json_encode(array('message' => 'No Quotes Found')); 
 } 
 else {
-    echo json_encode(array('id' =>  $quote->id)););
+    echo json_encode(array('id' =>  $quote->id));
 }
 
 /*
