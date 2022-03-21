@@ -36,5 +36,4 @@ if ($method == 'POST') {
     include('./create.php');
 }
 
-
 ?>
