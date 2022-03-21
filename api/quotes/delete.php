@@ -20,7 +20,7 @@ $quote->delete();
 
 $quote->id = $data->id;
 
-if($quote->id !== null) {
+if($quote->id !== null || isset($quote->id)) {
     echo json_encode(
         array('id' =>  $quote->id));
 } 
