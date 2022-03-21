@@ -63,7 +63,7 @@ public function read_single() {
     LEFT JOIN authors a 
     ON
     q.authorId = a.id
-    LEFT JOIN category c
+    LEFT JOIN categories c
     ON
     q.categoryId = c.id
     WHERE 
@@ -107,7 +107,7 @@ public function getQuotesByAuthorID() {
     LEFT JOIN authors a 
     ON
     q.authorId = a.id
-    LEFT JOIN category c
+    LEFT JOIN categories c
     ON
     q.categoryId = c.id
     WHERE 
@@ -146,7 +146,7 @@ public function getQuotesByCategoryId() {
    LEFT JOIN authors a
    ON 
    q.authorId = a.id 
-   LEFT JOIN category c ON  
+   LEFT JOIN categories c ON  
    q.categoryId = c.id
     WHERE
     q.categoryId = :categoryId';
@@ -182,7 +182,7 @@ public function getQuotesByAuthorIdAndCategoryId() {
    ON  
    q.authorId = a.id
    LEFT JOIN 
-   category c
+   categories c
    ON 
    q.categoryId = c.id
     WHERE
