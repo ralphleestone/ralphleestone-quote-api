@@ -22,8 +22,7 @@ else if ($method == 'PUT') {
 else if ($method == 'DELETE') {
     include('./delete.php');
 }
-
-if ($method == 'POST') {
+else if ($method == 'POST') {
     include('./create.php');
 }
 ?>
