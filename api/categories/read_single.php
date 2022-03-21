@@ -11,7 +11,6 @@ $db = $database->connect();
 
 $category = new Category($db);
 
-
 $category->id = isset($_GET['id']) ? $_GET['id'] : die();
 
 $category->read_single();

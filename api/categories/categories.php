@@ -16,13 +16,12 @@ $result = $category->read();
 $num = $result->rowCount();
 
 if($num > 0) {
-    // make an array of the quotes
     $category_arr = array();
     $category_arr = array();
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
-
+        
         $category_item = array( 
             'id' => $id,
             'category' => $category   
@@ -31,14 +30,12 @@ if($num > 0) {
         array_push($category_arr, $category_item);
     
     }
-
+    
     print_r(json_encode($category_arr));
-
 } else {
     echo json_encode(
         array('message' => 'No categories found')
     );
 }
-
 
 ?>

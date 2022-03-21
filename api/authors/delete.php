@@ -8,24 +8,18 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 include_once '../../config/Database.php';
 include_once '../../models/Author.php';
 
-
 $database = new Database();
 $db = $database->connect();
 
-
 $author = new Author($db);
-
 
 $data = json_decode(file_get_contents("php://input"));
 
-// update ID 
 $author->id = $data->id;
 
-
-// delete envoked
 if($author->delete()) {
     echo json_encode(
-        array('id' => $author->id )
+        array('id' => $author->id)
     );
 } else {
     echo json_encode(

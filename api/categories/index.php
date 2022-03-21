@@ -30,16 +30,10 @@ else if ($method == 'DELETE') {
     include('./delete.php');
 }
 
-
-
-
-
 else {
     echo json_encode(
         array('message' => 'No Quotes Found')
     );
 }
-
-
 
 ?>

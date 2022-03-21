@@ -38,10 +38,10 @@ $num = $result->rowCount();
         array_push($quote_arr, $quote_item);
  }
  print_r(json_encode($quote_arr));
-
-} else {
+}else {
     echo json_encode(
         array('message' => 'No quotes found')
     );
 }
+
 ?>

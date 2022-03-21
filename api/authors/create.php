@@ -8,21 +8,12 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 include_once '../../config/Database.php';
 include_once '../../models/Author.php';
 
-
 $database = new Database();
 $db = $database->connect();
 
-
 $author = new Author($db);
 
-
 $data = json_decode(file_get_contents("php://input"));
-
-// if(!property_exists($data, "author")) {
-//     echo json_encode(
-//         array('message' => 'Missing Required Parameters')
-//     )
-// }
 
 if($author->create()) { 
     echo json_encode(
@@ -31,6 +22,5 @@ if($author->create()) {
                 'author' => $author->author)
     );
 } 
-
 
 ?>
