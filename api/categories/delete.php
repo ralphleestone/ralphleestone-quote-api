@@ -26,3 +26,4 @@ if($category->delete()){
         array('message' => 'category Not updated')
     );
 }
+?>

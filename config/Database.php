@@ -1,5 +1,4 @@
 <?php
-
 class Database {
   public function connect() {
     $url = getenv('JAWSDB_URL');
@@ -18,5 +17,4 @@ class Database {
     return $this->conn;
   }
 }
-
 ?>

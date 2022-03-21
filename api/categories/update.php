@@ -1,5 +1,4 @@
 <?php
-
 include_once '../../config/Database.php';
 include_once '../../models/Category.php';
 
@@ -23,3 +22,4 @@ if($category->update()){
         array('message' => 'category Not updated')
     );
 }
+?>

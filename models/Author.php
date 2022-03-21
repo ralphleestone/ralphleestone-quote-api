@@ -1,5 +1,4 @@
 <?php 
-
 class Author {
     private $conn;
     private $table = 'authors';
@@ -99,5 +98,4 @@ class Author {
         return false;
     }
 }
-
 ?>

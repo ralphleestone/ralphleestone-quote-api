@@ -1,5 +1,4 @@
 <?php
-
 class Quote {
     private $conn;
     private $table = 'quotes';
@@ -196,5 +195,4 @@ class Quote {
         return false;
     }
 }
-
 ?>

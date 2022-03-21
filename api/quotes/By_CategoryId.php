@@ -1,5 +1,4 @@
 <?php
-
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: GET');
@@ -41,5 +40,4 @@ $num = $result->rowCount();
         array('message' => 'No quotes found')
     );
 }
-    
 ?>
