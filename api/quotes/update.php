@@ -16,10 +16,7 @@ $quote = new Quote($db);
 
 $data = json_decode(file_get_contents("php://input"));
 
-//$quote->id = $data->id;
-if(isset($data->id) === true){
 $quote->id = $data->id;
-}
 $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
