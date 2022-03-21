@@ -30,7 +30,7 @@ if($num > 0) {
     echo(json_encode($quote_arr));
 } else {
     echo json_encode(
-        array('message' => 'No quotes found')
+        array('message' => 'No Quotes Found')
     );
 }
 
