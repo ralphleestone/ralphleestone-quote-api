@@ -21,7 +21,7 @@ $quote_arr = array (
     'category' => $quote -> category
 );
 
-if(isset($quote->id) !== false) {
+if($quote->id !== null) {
     print_r(json_encode($quote_arr));
 }
 else {
