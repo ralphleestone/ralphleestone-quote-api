@@ -150,7 +150,7 @@ class Quote {
         if($stmt->execute()) {
             return true;
         } 
-        echo("Error: %s. \n", $stmt->error);
+        printf("Error: %s. \n", $stmt->error);
         return false;
     }
     
