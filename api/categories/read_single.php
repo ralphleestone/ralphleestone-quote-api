@@ -19,7 +19,7 @@ $category_arr = array (
     'category' => $category->category
 );
 
-if($category->id !== null || isset($category->id) {
+if($category->id !== null || isset($category->id)) {
     echo (json_encode($category_arr));
     } 
     else {
