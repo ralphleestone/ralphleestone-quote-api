@@ -56,7 +56,7 @@ class Category {
         $this->id = htmlspecialchars(strip_tags($this->id));
         $this->category = htmlspecialchars(strip_tags($this->category));
     
-        $stmt->bindParam(':id', $this->id);
+        //$stmt->bindParam(':id', $this->id);
         $stmt->bindParam(':category', $this->category);
       
         
