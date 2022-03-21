@@ -141,7 +141,7 @@ class Quote {
         $this->authorId = htmlspecialchars(strip_tags($this->authorId));
         $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
         
-        $stmt->bindParam(':id', $this->id);
+        //$stmt->bindParam(':id', $this->id);
         $stmt->bindParam(':quote', $this->quote);
         $stmt->bindParam(':authorId', $this->authorId);
         $stmt->bindParam(':categoryId', $this->categoryId);
