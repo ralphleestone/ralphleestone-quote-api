@@ -16,7 +16,10 @@ $data = json_decode(file_get_contents("php://input"));
 
 if(isset($data->id)){
 $category->id = $data->id;
-}
+}else {
+    echo json_encode(
+        array('message' => 'Missing Required Parameters')
+    );}
 
 $category->category = $data->category;
 
