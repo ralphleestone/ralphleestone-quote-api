@@ -1,48 +1,40 @@
 <?php
 
 class Category {
-
-    private $conn;
-    private $table = 'categories';
-    public $id;
-    public $category;
-
-    public function __construct($db) {
-        $this->conn = $db;
-    }
-// Start of get all categories
-    public function read() {
-        $query = 'SELECT 
-        id,
-        category
-        From 
-        ' . $this->table;
-
-
-    $stmt = $this->conn->prepare($query);
-
-    $stmt->execute();
-
-    return $stmt;
-    }
-    // end of get all categories
-
-    public function read_single() {
-        $query = 'SELECT
-        id,
-        category
-        
-        FROM 
-        ' . $this->table . '
-        WHERE
-        id = ?
-        LIMIT 0,1';
-
-        $stmt = $this->conn->prepare($query);
-
-        $stmt->bindParam(1, $this->id);
+  
+  private $conn;
+  private $table = 'categories';
+  public $id;
+  public $category;
+  
+  public function __construct($db) {
+    $this->conn = $db;
+  }
+  
+  public function read() {
+    $query = 'SELECT 
+    id,
+    category
+    From 
+    ' . $this->table;
     
-        // execute query
+    $stmt = $this->conn->prepare($query);
+    $stmt->execute();
+    return $stmt;
+  }
+  
+  public function read_single() {
+    $query = 'SELECT
+    id,
+    category
+    FROM 
+    ' . $this->table . '
+    WHERE
+    id = ?
+    LIMIT 0,1';
+    
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(1, $this->id);
     
         $stmt->execute();
     
@@ -53,10 +45,7 @@ class Category {
         $this->category = $row['category'];
         
     }
-    // end of single category model
 
-
-    // Start of create new category
     public function create() {
         $query = 'INSERT INTO ' . $this->table . '
         SET
@@ -75,8 +64,6 @@ class Category {
       
         
        if($stmt->execute()) {
-        
-          
             return true;
         }
     
@@ -84,9 +71,6 @@ class Category {
         return false;
         }
 
-
-        // --------------------------
-    // Start of update new category
     public function update() {
         $query = 'UPDATE ' . $this->table . '
         SET
@@ -111,10 +95,6 @@ class Category {
         printf("Error: %s. \n", $stmt->error);
         return false;
         }
-
-
-
-        // Delete a category
 
         public function delete() {
             $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';

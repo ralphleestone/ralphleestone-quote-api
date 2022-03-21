@@ -28,7 +28,6 @@ if($num > 0) {
         );
 
         array_push($category_arr, $category_item);
-    
     }
     
     print_r(json_encode($category_arr));
