@@ -131,6 +131,7 @@ class Quote {
         $query = 'INSERT INTO ' . 
         $this->table . '
         SET
+        id = :id,
         quote = :quote,
         authorId = :authorId,
         categoryId = :categoryId';
