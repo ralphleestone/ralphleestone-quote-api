@@ -1,5 +1,5 @@
 <?php
-function isValid($id,$model){
-
+function isValid($id,$model) {
+     
 }
 ?>
