@@ -28,14 +28,11 @@ $num = $result->rowCount();
         extract($row);
 
         $quote_item = array( 
-            
             'quote' => html_entity_decode($quote),
             'author' => $author,
             'id' => $id,
             'category' => $category
-           
         );
-
         array_push($quote_arr, $quote_item); 
  }
  print_r(json_encode($quote_arr));

@@ -23,7 +23,7 @@ $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
 if($quote->create()) {
-    
+
     echo json_encode(
 
         array(
