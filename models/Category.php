@@ -53,7 +53,7 @@ class Category {
 
         $stmt = $this->conn->prepare($query);
     
-        $this->id = htmlspecialchars(strip_tags($this->id));
+        //$this->id = htmlspecialchars(strip_tags($this->id));
         $this->category = htmlspecialchars(strip_tags($this->category));
     
         //$stmt->bindParam(':id', $this->id);

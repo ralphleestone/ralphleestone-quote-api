@@ -48,7 +48,7 @@ class Author {
         author = :author';
         
         $stmt = $this->conn->prepare($query);
-        $this->id = htmlspecialchars(strip_tags($this->id));
+        //$this->id = htmlspecialchars(strip_tags($this->id));
         $this->author = htmlspecialchars(strip_tags($this->author));
         
         //$stmt->bindParam(':id', $this->id);
