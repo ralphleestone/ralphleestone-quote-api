@@ -16,6 +16,7 @@ $num = $result->rowCount();
 
 if($num > 0) {
     $category_arr = array();
+    $category_arr = array();
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
