@@ -10,12 +10,11 @@ if ($method === 'OPTIONS') {
 
 $isAnId = filter_input(INPUT_GET, "id");
 
- if (isset($isAnId) && $method == 'GET') {
+if (isset($isAnId) && $method == 'GET') {
     include('./read_single.php');
 }
 else if ($method == 'GET') {
     include('./authors.php');
-
 } 
 else if ($method == 'PUT') {
     include('./update.php');
@@ -23,8 +22,7 @@ else if ($method == 'PUT') {
 else if ($method == 'DELETE') {
     include('./delete.php');
 }
-
-if ($method == 'POST') {
+else if ($method == 'POST') {
     include('./create.php');
 }
 ?>
