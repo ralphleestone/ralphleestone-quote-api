@@ -21,7 +21,7 @@ $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
-if($quote->create() || ) {
+if($quote->create()) {
     echo json_encode(
         array(
             'id' => $db->lastInsertId(),
