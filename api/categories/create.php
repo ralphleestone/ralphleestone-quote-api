@@ -14,9 +14,7 @@ $category = new Category($db);
 
 $data = json_decode(file_get_contents("php://input"));
 
-if(isset($data->id)){
 $category->id = $data->id;
-}
 
 $category->category = $data->category;
 
