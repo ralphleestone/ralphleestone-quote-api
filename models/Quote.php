@@ -157,6 +157,7 @@ class Quote {
         $query = 'UPDATE ' . 
         $this->table . '
         SET
+        id = :id,
         quote = :quote,
         authorId = :authorId,
         categoryId = :categoryId

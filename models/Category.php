@@ -71,6 +71,7 @@ class Category {
     public function update() {
         $query = 'UPDATE ' . $this->table . '
         SET
+        id = :id,
         category = :category
         WHERE id = :id';
 
