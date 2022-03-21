@@ -131,7 +131,6 @@ class Quote {
         $query = 'INSERT INTO ' . 
         $this->table . '
         SET
-        id = :id,
         quote = :quote,
         authorId = :authorId,
         categoryId = :categoryId';
@@ -158,7 +157,6 @@ class Quote {
         $query = 'UPDATE ' . 
         $this->table . '
         SET
-        id = :id,
         quote = :quote,
         authorId = :authorId,
         categoryId = :categoryId

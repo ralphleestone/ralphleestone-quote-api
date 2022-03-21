@@ -45,7 +45,6 @@ class Author {
     public function create() {
         $query = 'INSERT INTO ' . $this->table . '
         SET
-        id = :id,
         author = :author';
         
         $stmt = $this->conn->prepare($query);
@@ -66,7 +65,6 @@ class Author {
     public function update() {
         $query = 'UPDATE ' . $this->table . '
         SET
-        id = :id,
         author = :author
         WHERE
         id = :id';

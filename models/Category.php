@@ -49,7 +49,6 @@ class Category {
     public function create() {
         $query = 'INSERT INTO ' . $this->table . '
         SET
-        id = :id,
         category = :category';
 
         $stmt = $this->conn->prepare($query);
@@ -72,7 +71,6 @@ class Category {
     public function update() {
         $query = 'UPDATE ' . $this->table . '
         SET
-        id = :id,
         category = :category
         WHERE id = :id';
 
