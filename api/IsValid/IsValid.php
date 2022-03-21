@@ -6,7 +6,7 @@ include_once '../../models/Category.php';
 
 function isValid($id, $model) {
     $model->id = $id;
-    $modelResult = $model->read_single();
-    return $modelResult;
+    $result = $model->read_single();
+    return $result;
   }
 ?>
