@@ -127,80 +127,74 @@ class Quote {
         $stmt->execute();
         return $stmt;
     }
-
-public function create() {
-    $query = 'INSERT INTO ' . 
-    $this->table . '
-    SET
-    id = :id,
-    quote = :quote,
-    authorId = :authorId,
-    categoryId = :categoryId';
     
-    $stmt = $this->conn->prepare($query);
-    $this->id = htmlspecialchars(strip_tags($this->id));
-    $this->quote = htmlspecialchars(strip_tags($this->quote));
-    $this->authorId = htmlspecialchars(strip_tags($this->authorId));
-    $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
+    public function create() {
+        $query = 'INSERT INTO ' . 
+        $this->table . '
+        SET
+        id = :id,
+        quote = :quote,
+        authorId = :authorId,
+        categoryId = :categoryId';
+        
+        $stmt = $this->conn->prepare($query);
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->quote = htmlspecialchars(strip_tags($this->quote));
+        $this->authorId = htmlspecialchars(strip_tags($this->authorId));
+        $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
+        
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':quote', $this->quote);
+        $stmt->bindParam(':authorId', $this->authorId);
+        $stmt->bindParam(':categoryId', $this->categoryId);
+        
+        if($stmt->execute()) {
+            return true;
+        } 
+        printf("Error: %s. \n", $stmt->error);
+        return false;
+    }
     
-    $stmt->bindParam(':id', $this->id);
-    $stmt->bindParam(':quote', $this->quote);
-    $stmt->bindParam(':authorId', $this->authorId);
-    $stmt->bindParam(':categoryId', $this->categoryId);
-    
-    if($stmt->execute()) {
-        return true;
-    } 
-
-    printf("Error: %s. \n", $stmt->error);
-    return false;
-    
-}
-
-public function update() {
-    $query = 'UPDATE ' . 
-    $this->table . '
-    SET
-    id = :id,
-    quote = :quote,
-    authorId = :authorId,
-    categoryId = :categoryId
-    WHERE 
-    id = :id';
-    
-    $stmt = $this->conn->prepare($query);
-    
-    $this->id = htmlspecialchars(strip_tags($this->id));
-    $this->quote = htmlspecialchars(strip_tags($this->quote));
-    $this->authorId = htmlspecialchars(strip_tags($this->authorId));
-    $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
-
-    $stmt->bindParam(':id', $this->id);
-    $stmt->bindParam(':quote', $this->quote);
-    $stmt->bindParam(':authorId', $this->authorId);
-    $stmt->bindParam(':categoryId', $this->categoryId);
-
-    if($stmt->execute()) {
-        return true;
-    } 
-
-    printf("Error: %s. \n", $stmt->error);
-    return false;
-    
-}
-public function delete() {
-    $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
-    $stmt = $this->conn->prepare($query);
-    $this->id = htmlspecialchars(strip_tags($this->id));
-    $stmt->bindParam(':id', $this->id);
-    
-    if($stmt->execute()) {
-        return true;
-    } 
-    
-    printf("Error: %s. \n", $stmt->error);
-    return false;
-}
+    public function update() {
+        $query = 'UPDATE ' . 
+        $this->table . '
+        SET
+        id = :id,
+        quote = :quote,
+        authorId = :authorId,
+        categoryId = :categoryId
+        WHERE 
+        id = :id';
+        
+        $stmt = $this->conn->prepare($query);
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->quote = htmlspecialchars(strip_tags($this->quote));
+        $this->authorId = htmlspecialchars(strip_tags($this->authorId));
+        $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
+        
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':quote', $this->quote);
+        $stmt->bindParam(':authorId', $this->authorId);
+        $stmt->bindParam(':categoryId', $this->categoryId);
+        
+        if($stmt->execute()) {
+            return true;
+        } 
+        printf("Error: %s. \n", $stmt->error);
+        return false;
+    }
+    public function delete() {
+        $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+        $stmt = $this->conn->prepare($query);
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $stmt->bindParam(':id', $this->id);
+        
+        if($stmt->execute()) {
+            return true;
+        } 
+        printf("Error: %s. \n", $stmt->error);
+        return false;
+    }
 }
 
 ?>

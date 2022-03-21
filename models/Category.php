@@ -51,9 +51,7 @@ class Category {
         SET
         id = :id,
         category = :category';
-        // above uses named parameters
-    
-        // prepare 
+
         $stmt = $this->conn->prepare($query);
     
         $this->id = htmlspecialchars(strip_tags($this->id));
@@ -77,9 +75,7 @@ class Category {
         id = :id,
         category = :category
         WHERE id = :id';
-        // above uses named parameters
-    
-        // prepare 
+        
         $stmt = $this->conn->prepare($query);
     
         $this->id = htmlspecialchars(strip_tags($this->id));
