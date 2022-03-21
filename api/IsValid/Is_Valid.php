@@ -1,7 +1,7 @@
 <?php
-function isValid($id,$model) {
-    $model->id = $data->id;
-    $result = $model->read_single();
-    return $result;
-}
+function isValid($id, $model) {
+    $model->id = $id;
+    $modelResult = $model->read_single();
+    return $modelResult;
+  }
 ?>
