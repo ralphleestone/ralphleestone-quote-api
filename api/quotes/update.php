@@ -8,6 +8,7 @@ include_once '../../config/Database.php';
 include_once '../../models/Quote.php';
 include_once '../../models/Author.php';
 include_once '../../models/Category.php';
+include_once '../../api/IsValid/IsValid.php';
 
 $database = new Database();
 $db = $database->connect();
@@ -20,6 +21,15 @@ $quote->id = $data->id;
 $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
+
+$quoteExists = isValid($quote->id,$quote);
+
+if(!$quoteExists) {
+    echo json_encode(array('message' => 'No Quotes Found')); 
+} 
+else {
+    echo json_encode(array('id' =>  $quote->id));
+}
 
 if($quote->update()) {
     echo json_encode(
